@@ -1,0 +1,97 @@
+МОТИВАЦИЯ
+
+  Добавление мониторинга в систему:
+    - улучшит наблюдаемость
+    - позволит повысить надежность и безопасность системы
+    - позволит повысить быстродействие системы и обеспечить более эффективное использование ресурсов
+    - позволит ускорить рабочие процессы
+    - позволит собирать ценные данные, которые могут привести к бизнес инсайтам
+    - позволит повысить удовлетворенность пользователей
+
+
+
+ВЫБОР ПОДХОДА К МОНИТОРИНГУ
+
+  Для мониторинга буду использовать метод "Четыре золотых сигнала"
+
+
+
+МЕТРИКИ
+  Задержка:
+    - Response time (latency)
+
+  Трафик:
+    - Number of requests (RPS)
+    - Kb tranferred (received)
+    - Kb provided (sent)
+
+  Ошибки:
+    - Number of HTTP 500
+    - Number of dead-letter-exchange letters
+
+  Насыщенность:
+    - CPU %
+    - Memory Utilisation
+    - Number of simultanious sessions
+    - Size
+    - Number of messages in flight
+
+  Какие части системы буду мониторить
+    Message Queue:
+      - Number of dead-letter-exchange letters
+      - Number of message in flight
+
+    Shop API
+      - CPU %
+      - Memory Utilisation
+      - Response time (latency)
+      - Number of requests (RPS)
+      - Number of simultanious sessions
+      - Number of HTTP 200
+      - Number of HTTP 500
+      - Kb tranferred (received)
+      - Kb provided (sent)
+
+    Shop DB instance
+      - Memory Utilisation
+      - Number of connections
+      - Size
+
+    CRM API
+      - CPU %
+      - Memory Utilisation
+      - Response time (latency)
+      - Number of requests (RPS)
+      - Number of simultanious sessions
+      - Number of HTTP 200
+      - Number of HTTP 500
+      - Kb tranferred (received)
+      - Kb provided (sent)
+
+    MES API
+      - CPU %
+      - Memory Utilisation
+      - Response time (latency)
+      - Number of requests (RPS)
+      - Number of simultanious sessions
+      - Number of HTTP 200
+      - Number of HTTP 500
+      - Kb tranferred (received)
+      - Kb provided (sent)
+
+    MES DB instance
+      - Memory Utilisation
+      - Number of connections
+      - Size
+
+    S3 storage
+      - Size
+
+
+
+ПЛАН ДЕЙСТВИЙ
+  1. Развернуть и настроить Prometheus (сервер + бд)
+  2. Настроить агенты-экспортеры для MessageQueue, Shop API, Shop DB, CRM API, MES API, MES DB
+  3. Развернуть Grafana и подключить к Prometheus
+  4. Создать борды с метриками для всех сервисов
+  5. Настроить алертинг по критичным уровням для метрик
